@@ -1,4 +1,4 @@
-REPORTER = xunit
+REPORTER = junit
 
 test:
   @NODE_ENV=test ./node_modules/.bin/mocha \
