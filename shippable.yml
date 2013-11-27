@@ -3,8 +3,9 @@ node_js:
 
 language: node_js
 before_script: mkdir -p shippable/codecoverage shippable/testresults
-script: make test --junit-xml=shippable/testresults/results.xml
+
+
 after_script: 
   - ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -u tdd 
   - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
-  
+  - /node_modules/.bin/_mocha -- --reporter=xunit-file --dir shippable/testresults
