@@ -7,10 +7,12 @@
   "main": "index",
   "engines": { "node": ">= 0.10.x" },
   "scripts": {
-    "test": "make test"
+    
+    "test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter=spec test/*.js",
   },
   "devDependencies": {
     "mocha": "1.12.x",
-    "istanbul": "0.1.x" 
+    "istanbul": "0.1.x" ,
+    "xunit-file": "0.0.5"
   }
 }
