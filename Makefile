@@ -1,13 +1,8 @@
-REPORTER = junit
-
+TESTS = test/*.js
+TESTDATA = shippable/testresults
 test:
-  @NODE_ENV=test ./node_modules/.bin/mocha \
-    --reporter $(REPORTER) \
 
-test-w:
-  @NODE_ENV=test ./node_modules/.bin/mocha \
-    --reporter $(REPORTER) \
-    --growl \
-    --watch
-
-.PHONY: test test-w
+        mkdir -p $(TESTDATA)
+        XUNIT_FILE=$(TESTDATA)/result.xml ./node_modules/mocha/bin/mocha --timeout 5000 --reporter=xunit-file $(TESTS)
+  
+.PHONY: test 
