@@ -3,7 +3,7 @@ node_js:
 
 language: node_js
 before_script: mkdir -p shippable/codecoverage shippable/testresults
-Install: npm install mocha-lcov-reporter
+Install: npm install 
 
 after_script: 
   - ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -u tdd 
