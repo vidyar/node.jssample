@@ -1,5 +1,5 @@
-node_js:
-  - "0.10"
+#node_js:
+ # - "0.10"
 language: node_js
 before_script: mkdir -p shippable/codecoverage 
 Install: npm install 
@@ -10,3 +10,6 @@ after_script:
   - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
 script: mocha test/*.js 
  
+matrix:
+    include:
+      - node_js: "0.11"
